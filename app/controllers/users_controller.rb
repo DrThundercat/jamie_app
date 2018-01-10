@@ -4,12 +4,20 @@ class UsersController < ApplicationController
   end
   
   def new
+    @user = User.new
   end
   
   def show 
+    @user = User.all
   end 
   
   def create 
+    @user = User.new(usr_params)
+    
+    if @user.save 
+      redirect_to :action => 'show'
+    else 
+      
   end
   
   def edit
@@ -23,9 +31,10 @@ class UsersController < ApplicationController
   
   private 
   
-    def find_doc 
+    def find_usr 
     end 
   
-    def doc_params
+    def usr_params
+      params.require(:users).permit(:name, :email)
     end
 end
