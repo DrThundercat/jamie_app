@@ -1,0 +1,8 @@
+Pleaes Enter your e-mail or password 
+<hr> 
+<%= form_for @user do |f| %>
+   email: <%= f.text_field :email %><br />
+   name: <%= f.text_field :name %><br />
+   
+   <a class="btn btn-primary"<%= f.submit %> submit </a>
+<% end %> 

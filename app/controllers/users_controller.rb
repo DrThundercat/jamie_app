@@ -17,7 +17,8 @@ class UsersController < ApplicationController
     if @user.save 
       redirect_to :action => 'show'
     else 
-      
+      render :action => 'new'
+    end
   end
   
   def edit
