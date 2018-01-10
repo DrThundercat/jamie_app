@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   
+  layout :resolve_layout
+  
   def index 
   end
   
@@ -37,5 +39,14 @@ class UsersController < ApplicationController
   
     def usr_params
       params.require(:users).permit(:name, :email)
+    end
+    
+    def resolve_layout
+      case action_name 
+      when "new"
+        "sign_in"
+      else 
+        "application"
+      end 
     end
 end
